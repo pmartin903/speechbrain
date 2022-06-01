@@ -151,3 +151,10 @@ dmypy.json
 
 # Mac OS
 .DS_Store
+
+# Conda install
+miniconda.sh
+tools/speechbrain_python
+
+# VsCode
+.vscode

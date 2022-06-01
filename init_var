@@ -1,0 +1,4 @@
+#!/bin/bash
+
+BASEDIR=$(dirname "$BASH_SOURCE")
+source $BASEDIR/tools/speechbrain_python/bin/activate
