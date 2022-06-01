@@ -144,9 +144,10 @@ class DynamicItemDataset(Dataset):
     """
 
     def __init__(
-        self, data, dynamic_items=[], output_keys=[],
+        self, data, delimiter, dynamic_items=[], output_keys=[],
     ):
         self.data = data
+        self.delimiter = delimiter
         self.data_ids = list(self.data.keys())
         static_keys = list(self.data[self.data_ids[0]].keys())
         if "id" in static_keys:
@@ -358,10 +359,10 @@ class DynamicItemDataset(Dataset):
 
     @classmethod
     def from_csv(
-        cls, csv_path, replacements={}, dynamic_items=[], output_keys=[]
+        cls, csv_path, delimiter, replacements={}, dynamic_items=[], output_keys=[]
     ):
         """Load a data prep CSV file and create a Dataset based on it."""
-        data = load_data_csv(csv_path, replacements)
+        data = load_data_csv(csv_path, delimiter, replacements)
         return cls(data, dynamic_items, output_keys)
 
     @classmethod
